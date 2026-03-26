@@ -31,7 +31,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : AuditBase
         entity.CreatedAt = DateTime.UtcNow;
         entity.UpdatedAt = null;
         await _dbSet.AddAsync(entity);
-        await _context.SaveChangesAsync();
+        await _context.SaveChangesAsync(); // este metedo savecahngesAsync () es crucial para que los cambios se reflejen en la base de datos, sin esta linea los cambios no se guardaran en la base de datos
         return entity;
     }
 
