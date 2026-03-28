@@ -178,7 +178,7 @@ public class LeagueDbContext : DbContext
                 .IsRequired();
             entity.Property(ts => ts.UpdatedAt)
                 .IsRequired(false);
-
+            
             // Relación con Tournament
             entity.HasOne(ts => ts.Tournament)
                 .WithMany(t => t.TournamentSponsors)
